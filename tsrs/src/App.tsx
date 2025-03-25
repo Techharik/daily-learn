@@ -8,6 +8,7 @@ import FormTyping from './challange/TypeScript/4FormTyping'
 import ContactForm from './challange/TypeScript/5ContactFrom'
 import EventHandlingTyping from './challange/TypeScript/6EventHandleTyping'
 import reducer from './challange/TypeScript/context/Reducer'
+import HookForm from './challange/ReactHookForm/HookForm'
 
 function App() {
   // const [count] = useReducer(reducer, { count: 0 })
@@ -19,6 +20,8 @@ function App() {
       {/* <FormTyping />
       <ContactForm /> */}
       {/* <EventHandlingTyping /> */}
+      //react Hooks
+      <HookForm />
     </>
   )
 }
