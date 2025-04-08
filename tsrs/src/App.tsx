@@ -12,11 +12,17 @@ import HookForm from './challange/ReactHookForm/HookForm'
 import FetchTodo from './challange/React19/FetchTodo'
 import { Sidebar } from 'lucide-react'
 import SidebarComponnet from './challange/Project/Ecomm/componnets/Sidebar'
+import { useCounter } from './challange/Zustand/store'
+import ListZustand from './challange/Zustand/ListZustand'
+import { store } from './challange/Zustand/storeRedux'
+import { Provider } from 'react-redux'
 
 function App() {
+  const { count, increment } = useCounter();
+
   // const [count] = useReducer(reducer, { count: 0 })
   return (
-    <>
+    <Provider store={store}>
       {/* <StateTyping /> */}
       {/* <ComplexTyping /> */}
       {/* <TodoTyping /> */}
@@ -33,11 +39,17 @@ function App() {
 
 
       {/* Project */}
-
+      {/* 
       <div style={{ fontFamily: "sans-serif" }}>
         <SidebarComponnet />
+      </div> */}
+
+      {/* Zustand */}
+      <div>
+        <ListZustand />
       </div>
-    </>
+
+    </Provider>
   )
 }
 
