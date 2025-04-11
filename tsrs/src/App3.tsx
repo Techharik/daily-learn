@@ -6,7 +6,23 @@ import ContainerComponnet from "./challange/React3/ContainerComponnet.tsx";
 import Dropdown from "./challange/React3/DropDownClone.tsx";
 import withLoading from "./challange/React3/HOC/withLoading.tsx";
 import TodoList from "./challange/React3/HOC/TodoList.tsx";
+import withRoles from "./challange/React3/HOC/withRoles.tsx";
 const HigerComponnet = withLoading(TodoList)
+
+type DashboardProps = {
+    security: string;
+    user: string;
+};
+
+const Fallback = () => <div>Access Denied</div>;
+
+const Dashboardss = ({ user, security, style }) => {
+    return (
+        <div style={style}>Welcome  Security level:{user} ---- {security}</div>
+    )
+}
+
+const DashboardWithRoles = withRoles(Dashboardss);
 
 const App = () => {
     return <>
@@ -43,6 +59,14 @@ const App = () => {
             background: 'red',
             height: '2rem'
         }} />
+
+        <DashboardWithRoles
+            roles={["Admin"]}
+            FallBackComponent={Fallback}
+            injectedProps={{ security: "High" }}
+            user='jane'
+        />;
+
     </>;
 };
 
